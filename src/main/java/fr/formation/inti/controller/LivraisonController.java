@@ -23,7 +23,7 @@ public class LivraisonController {
 
 	@GetMapping("/list")
 	public String listLivraison(Model themodel) {
-		themodel.addAttribute("livraison", livraisonService.getLivraison());
+		themodel.addAttribute("livraison", livraisonService.findAll());
 
 		return "list-livraison";
 	}
@@ -39,10 +39,10 @@ public class LivraisonController {
 	public String processForm(Model themodel, @ModelAttribute("livraison") Livraison livraison) {
 
 		// adding logic here
-		livraisonService.addLivraison(livraison);
+		livraisonService.add(livraison);
 
 		// display
-		themodel.addAttribute("livraison", livraisonService.getLivraison());
+		themodel.addAttribute("livraison", livraisonService.findAll());
 
 		return "list-livraison";
 	}
@@ -50,7 +50,7 @@ public class LivraisonController {
 	@GetMapping("/update")
 	public String updateLivraison(Model themodel, @RequestParam("idLivraison") Integer theId) {
 
-		themodel.addAttribute("livraison", livraisonService.getSingleLivraison(theId));
+		themodel.addAttribute("livraison", livraisonService.findById(theId));
 
 		return "show-livraison-form";
 
@@ -60,10 +60,10 @@ public class LivraisonController {
 	public String deleteLivraison(Model themodel, @RequestParam("idLivraison") Integer theId) {
 
 		// adding logic here
-		livraisonService.deleteLivraison(theId);
+		livraisonService.delete(theId);
 
 		// display
-		themodel.addAttribute("livraison", livraisonService.getLivraison());
+		themodel.addAttribute("livraison", livraisonService.findAll());
 
 		return "list-livraison";
 

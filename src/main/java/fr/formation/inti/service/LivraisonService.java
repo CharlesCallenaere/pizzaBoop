@@ -16,7 +16,7 @@ public class LivraisonService {
     @Autowired
     private LivraisonDao livraisondao;
     
-    public List<Livraison> getLivraison() {
+    public List<Livraison> findAll() {
         
                 // do some business processing here ...
             //now call DAO layer
