@@ -85,4 +85,9 @@ public class Articles implements java.io.Serializable {
 		this.commandeArticles = commandeArticles;
 	}
 
+	@Override
+	public String toString() {
+		return "Articles [nom=" + nom + ", prix=" + prix + ", category=" + category + "]";
+	}
+
 }

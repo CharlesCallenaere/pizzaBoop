@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr-FR">
+<html lang="fr-FR" xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>Bienvenue</title>
 <meta charset="utf-8">
@@ -22,11 +22,14 @@
 					<li class="nav-item"><a class="nav-link">Commander</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li class="nav-item"><a class="nav-link">Sign Up</a></li>
-					<li class="nav-item"><a class="nav-link">Login</a></li>
+					<li class="nav-item"><a class="nav-link" href="signUp">Sign Up</a></li>
+					<li class="nav-item"><a class="nav-link" href="login">Login</a></li>
 				</ul>
 			</div>
 		</nav>
 	</header>
+	<div>
+		<h1 th:utext="${hello}"></h1>
+	</div>
 </body>
 </html>
