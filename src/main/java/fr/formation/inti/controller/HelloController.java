@@ -24,4 +24,13 @@ public class HelloController {
 		return "commande";
 		
 	}
+	
+	
+//	@GetMapping(path={"/"})
+//	public String viewForm(Model model) {
+//	model.addAttribute("custommer", custommerService.getCustommer());
+//
+//	return "interface_livraison";
+//		
+//	}
 }
