@@ -23,7 +23,7 @@ public class ArticlesController {
 
 	@GetMapping("/list")
 	public String listArticle(Model themodel) {
-		themodel.addAttribute("article", articleService.getArticles());
+		themodel.addAttribute("article", articleService.findAll());
 
 		return "list-article";
 	}
@@ -39,10 +39,10 @@ public class ArticlesController {
 	public String processForm(Model themodel, @ModelAttribute("article") Articles article) {
 
 		// adding logic here
-		articleService.addArticle(article);
+		articleService.add(article);
 
 		// display
-		themodel.addAttribute("article", articleService.getArticles());
+		themodel.addAttribute("article", articleService.findAll());
 
 		return "list-article";
 	}
@@ -50,7 +50,7 @@ public class ArticlesController {
 	@GetMapping("/update")
 	public String updateArticle(Model themodel, @RequestParam("idArticle") Integer theId) {
 
-		themodel.addAttribute("article", articleService.getSingleArticles(theId));
+		themodel.addAttribute("article", articleService.getById(theId));
 
 		return "show-article-form";
 
@@ -60,10 +60,10 @@ public class ArticlesController {
 	public String deleteArticle(Model themodel, @RequestParam("idLivraison") Integer theId) {
 
 		// adding logic here
-		articleService.deleteArticle(theId);
+		articleService.delete(theId);
 
 		// display
-		themodel.addAttribute("article", articleService.getArticles());
+		themodel.addAttribute("article", articleService.findAll());
 
 		return "list-article";
 
