@@ -25,7 +25,7 @@ public class LivraisonService {
   }
     
     
-    public Livraison addLivraison(Livraison livraison) {
+    public Livraison add(Livraison livraison) {
         
          // do some business processing  here ...
             //now call DAO layer
@@ -33,7 +33,7 @@ public class LivraisonService {
         
     }
     
-    public Livraison getSingleLivraison(Integer theId) {
+    public Livraison findById(Integer theId) {
         
         // do some business processing here ... 
             //now call DAO layer
@@ -41,7 +41,7 @@ public class LivraisonService {
     }
     
     
-    public void deleteLivraison(Integer theId) {
+    public void delete(Integer theId) {
          // do some business processing here ...
          //now call DAO layer
     	livraisondao.deleteById(theId);

@@ -25,7 +25,7 @@ public class ArticleService {
 	}
 
 
-    public List<Articles> getArticles() {
+    public List<Articles> findAll() {
         
                 // do some business processing here ...
             //now call DAO layer
@@ -34,7 +34,7 @@ public class ArticleService {
   }
     
     
-    public Articles addArticle(Articles article) {
+    public Articles add(Articles article) {
         
          // do some business processing  here ...
             //now call DAO layer
@@ -42,7 +42,7 @@ public class ArticleService {
         
     }
     
-    public Articles getSingleArticles(Integer theId) {
+    public Articles getById(Integer theId) {
         
         // do some business processing here ... 
             //now call DAO layer
@@ -51,7 +51,7 @@ public class ArticleService {
     
     
     @Transactional
-    public void deleteArticle(Integer theId) {
+    public void delete(Integer theId) {
          // do some business processing here ...
          //now call DAO layer
     	articleDao.deleteById(theId);
