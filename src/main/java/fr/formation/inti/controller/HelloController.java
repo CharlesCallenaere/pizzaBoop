@@ -24,6 +24,9 @@ public class HelloController {
 	@GetMapping(path={"/"})
 	public String view(Model model) {
 		return "accueil";
+	}
+	
+	@GetMapping(path = {"/livraison"})
 	public String viewForm(Model model) {
 		model.addAttribute("custommer", custommerService.getCustommer());
 		
