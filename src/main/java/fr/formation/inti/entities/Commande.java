@@ -114,5 +114,4 @@ public class Commande implements java.io.Serializable {
 	public void setCommandeArticles(Set<CommandeArticle> commandeArticles) {
 		this.commandeArticles = commandeArticles;
 	}
-
 }

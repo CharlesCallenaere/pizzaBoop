@@ -1,15 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
-
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta charset="UTF-8">
 <title>Interface</title>
 <script type="text/javascript" src="javaInterface.js"></script>
 </head>
-
 <body>
 	<h1>Livraisons à effectuer :</h1>
 
@@ -22,10 +18,15 @@
 						<li th:text="${client.prenom}"></li>
 						<li th:text="${client.adresse}"></li>
 						<li th:text="${client.numTel}"></li>
+						
 						<li th:each="commande : ${client.commandes}">
 						<span th:text="${commande.idCommande}"></span>
 						</li>
-						<li><script type="text/javascript">horloge('div_horloge')</script></li>
+						<li th:each="commande : ${client.commandes}">
+						<script>
+						
+						 document.write('${commande.idCommande}'');</script>
+						 </li>
 					</ul>
 				</td>
 				<td class="duree">3:15</td>
@@ -38,5 +39,6 @@
 			</tr>
 		</tbody>
 	</table>
+	
 </body>
 </html>
