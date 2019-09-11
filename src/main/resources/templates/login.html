@@ -29,11 +29,17 @@
 		</nav>
 	</header>
 	<div class="container">
+        <div class="bg-warning" th:if="${param.error}">
+            Invalid username and password.
+        </div>
+        <div class="bg-info" th:if="${param.logout}">
+            You have been logged out.
+        </div>
 		<h1 class="p-3 mb-2">Se connecter</h1>
-		<form method="post" action="login">
+        <form th:action="@{/login}" method="post">
 			<div class="form-group">
-				<label for="inputEmail">Email</label> 
-				<input type="email" class="form-control" id="inputLogin" name="email" required>
+				<label for="inputUser">Login</label> 
+				<input type="text" class="form-control" id="inputLogin" name="user" required>
 			</div>
 			<div class="form-group">
 				<label for="inputPassword">Mot de passe</label> 
