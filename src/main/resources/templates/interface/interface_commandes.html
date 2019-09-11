@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Interface</title>
+<script type="text/javascript" src="javaInterface.js"></script>
+</head>
+<body>
+	<header th:insert="fragment/header.html :: header"> </header>
+	<h1>Livraisons à effectuer :</h1>
+	<table class="tab">
+		<tbody>
+			<tr>
+				<td class="client">Données client :<br />
+					<ul>
+						<li>Nom</li>
+						<li>Prénom</li>
+						<li>Adresse</li>
+						<li>Num commande</li>
+					</ul>
+				</td>
+				<td class="duree">3:15</td>
+				<td class="km">1,7 km</td>
+				<td class="accepter">
+					<form action="http://localhost:8080/Projet_Pizza/livraisons">
+						<input type="checkbox">
+					</form>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
