@@ -7,25 +7,25 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import fr.formation.inti.dao.ArticlesDao;
-import fr.formation.inti.entities.Articles;
+import fr.formation.inti.dao.ArticleDao;
+import fr.formation.inti.entities.Article;
 
 
 @Service
 public class ArticleService {
 
     @Autowired
-    private ArticlesDao articleDao;
+    private ArticleDao articleDao;
     
     
     
     
-    public void setArticleDao(ArticlesDao articleDao) {
+    public void setArticleDao(ArticleDao articleDao) {
 		this.articleDao = articleDao;
 	}
 
 
-    public List<Articles> findAll() {
+    public List<Article> findAll() {
         
                 // do some business processing here ...
             //now call DAO layer
@@ -34,7 +34,7 @@ public class ArticleService {
   }
     
     
-    public Articles add(Articles article) {
+    public Article add(Article article) {
         
          // do some business processing  here ...
             //now call DAO layer
@@ -42,7 +42,7 @@ public class ArticleService {
         
     }
     
-    public Articles getById(Integer theId) {
+    public Article getById(Integer theId) {
         
         // do some business processing here ... 
             //now call DAO layer

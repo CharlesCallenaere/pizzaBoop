@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import fr.formation.inti.entities.Articles;
+import fr.formation.inti.entities.Article;
 import fr.formation.inti.service.ArticleService;
 
 
 
 @Controller
 @RequestMapping("/articles")
-public class ArticlesController {
+public class ArticleController {
 
 	@Autowired
 	private ArticleService articleService;
@@ -30,13 +30,13 @@ public class ArticlesController {
 
 	@GetMapping("/addarticle")
 	public String addArticle(Model themodel) {
-		Articles article = new Articles();
+		Article article = new Article();
 		themodel.addAttribute(article);
 		return "show-article-form";
 	}
 
 	@PostMapping("/processform")
-	public String processForm(Model themodel, @ModelAttribute("article") Articles article) {
+	public String processForm(Model themodel, @ModelAttribute("article") Article article) {
 
 		// adding logic here
 		articleService.add(article);

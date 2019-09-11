@@ -18,20 +18,20 @@ import javax.persistence.Table;
 public class CommandeArticle implements java.io.Serializable {
 
 	private int idCommandeArticle;
-	private Articles articles;
+	private Article articles;
 	private Commande commande;
 	private Integer articleQuantity;
 
 	public CommandeArticle() {
 	}
 
-	public CommandeArticle(int idCommandeArticle, Articles articles, Commande commande) {
+	public CommandeArticle(int idCommandeArticle, Article articles, Commande commande) {
 		this.idCommandeArticle = idCommandeArticle;
 		this.articles = articles;
 		this.commande = commande;
 	}
 
-	public CommandeArticle(int idCommandeArticle, Articles articles, Commande commande, Integer articleQuantity) {
+	public CommandeArticle(int idCommandeArticle, Article articles, Commande commande, Integer articleQuantity) {
 		this.idCommandeArticle = idCommandeArticle;
 		this.articles = articles;
 		this.commande = commande;
@@ -51,11 +51,11 @@ public class CommandeArticle implements java.io.Serializable {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_ARTICLE", nullable = false)
-	public Articles getArticles() {
+	public Article getArticles() {
 		return this.articles;
 	}
 
-	public void setArticles(Articles articles) {
+	public void setArticles(Article articles) {
 		this.articles = articles;
 	}
 

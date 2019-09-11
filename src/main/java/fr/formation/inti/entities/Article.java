@@ -19,7 +19,7 @@ import javax.persistence.Table;
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "articles", catalog = "pizza_db")
-public class Articles implements java.io.Serializable {
+public class Article implements java.io.Serializable {
 
 	private Integer idArticle;
 	private String nom;
@@ -27,10 +27,10 @@ public class Articles implements java.io.Serializable {
 	private String category;
 	private Set<CommandeArticle> commandeArticles = new HashSet<CommandeArticle>(0);
 
-	public Articles() {
+	public Article() {
 	}
 
-	public Articles(String nom, BigDecimal prix, String category, Set<CommandeArticle> commandeArticles) {
+	public Article(String nom, BigDecimal prix, String category, Set<CommandeArticle> commandeArticles) {
 		this.nom = nom;
 		this.prix = prix;
 		this.category = category;
