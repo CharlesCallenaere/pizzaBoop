@@ -9,8 +9,6 @@ import fr.formation.inti.service.ArticleService;
 import fr.formation.inti.service.CustommerService;
 @Controller
 public class HelloController {
-	@Autowired
-	private CustommerService custommerService;
 
 	/**
 	 * @GetMapping to get rid of the @RequestMapping(path={"/"}, method=RequestMethod.GET) annotation which is noncompliant
@@ -18,6 +16,8 @@ public class HelloController {
 	 * @param model
 	 * @return
 	 */
+	@Autowired
+	private CustommerService custommerService;
 	@Autowired
 	private ArticleService service;
 	
@@ -35,7 +35,7 @@ public class HelloController {
 	}
 	@GetMapping(path={"/test"})
 	public String viewTest(Model model) {
-		model.addAttribute("articles",service.findAll());
+		model.addAttribute("articles", service.findAll());
 		return "test";
 	}
 	

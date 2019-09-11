@@ -16,12 +16,12 @@ USE `pizza_db`;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 --
--- Table structure for table `articles`
+-- Table structure for table `article`
 --
-DROP TABLE IF EXISTS `articles`;
+DROP TABLE IF EXISTS `article`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `articles` (
+CREATE TABLE `article` (
   `ID_ARTICLE` int(11) NOT NULL AUTO_INCREMENT,
   `NOM` varchar(30) DEFAULT NULL,
   `PRIX` decimal(5,2) DEFAULT NULL,
@@ -30,12 +30,12 @@ CREATE TABLE `articles` (
 ) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 --
--- Dumping data for table `articles`
+-- Dumping data for table `article`
 --
-LOCK TABLES `articles` WRITE;
-/*!40000 ALTER TABLE `articles` DISABLE KEYS */;
-INSERT INTO `articles` VALUES (1,'4 Fromages',9.50,'Pizza'),(2,'Margherita',8.50,'Pizza'),(3,'Reine',8.50,'Pizza'),(4,'Napolitaine',9.50,'Pizza'),(5,'Romaine',8.95,'Pizza'),(6,'Calzone',9.50,'Pizza'),(7,'HawaÃ¯enne',10.95,'Pizza'),(8,'Pepperoni',9.50,'Pizza'),(9,'Montagnarde',10.95,'Pizza'),(10,'Pollosa',9.50,'Pizza'),(11,'Saumona',10.95,'Pizza'),(12,'Cola',2.95,'Boisson'),(13,'Orangeade',2.95,'Boisson'),(14,'ThÃ© GlacÃ©',2.95,'Boisson'),(15,'Eau ',1.50,'Boisson'),(16,'Limonade',2.95,'Boisson'),(17,'Binouze',5.95,'Boisson'),(18,'Mozza Sticks',3.95,'EntrÃ©e'),(19,'Burrata',3.95,'EntrÃ©e'),(20,'Salade',4.95,'EntrÃ©e'),(21,'Nuggets',3.95,'EntrÃ©e'),(22,'Glace',3.95,'Dessert'),(23,'Beignet',3.95,'Dessert'),(24,'Pancake',3.95,'Dessert'),(25,'Chti\'ramisu',2.95,'Dessert'),(26,'4 Fromages',9.50,'Pizza'),(27,'Margherita',8.50,'Pizza'),(28,'Reine',8.50,'Pizza'),(29,'Napolitaine',9.50,'Pizza'),(30,'Romaine',8.95,'Pizza'),(31,'Calzone',9.50,'Pizza'),(32,'HawaÃ¯enne',10.95,'Pizza'),(33,'Pepperoni',9.50,'Pizza'),(34,'Montagnarde',10.95,'Pizza'),(35,'Pollosa',9.50,'Pizza'),(36,'Saumona',10.95,'Pizza'),(37,'Cola',2.95,'Boisson'),(38,'Orangeade',2.95,'Boisson'),(39,'ThÃ© GlacÃ©',2.95,'Boisson'),(40,'Eau ',1.50,'Boisson'),(41,'Limonade',2.95,'Boisson'),(42,'Binouze',5.95,'Boisson'),(43,'Mozza Sticks',3.95,'EntrÃ©e'),(44,'Burrata',3.95,'EntrÃ©e'),(45,'Salade',4.95,'EntrÃ©e'),(46,'Nuggets',3.95,'EntrÃ©e'),(47,'Glace',3.95,'Dessert'),(48,'Beignet',3.95,'Dessert'),(49,'Pancake',3.95,'Dessert'),(50,'Chti\'ramisu',2.95,'Dessert');
-/*!40000 ALTER TABLE `articles` ENABLE KEYS */;
+LOCK TABLES `article` WRITE;
+/*!40000 ALTER TABLE `article` DISABLE KEYS */;
+INSERT INTO `article` VALUES (1,'4 Fromages',9.50,'Pizza'),(2,'Margherita',8.50,'Pizza'),(3,'Reine',8.50,'Pizza'),(4,'Napolitaine',9.50,'Pizza'),(5,'Romaine',8.95,'Pizza'),(6,'Calzone',9.50,'Pizza'),(7,'HawaÃ¯enne',10.95,'Pizza'),(8,'Pepperoni',9.50,'Pizza'),(9,'Montagnarde',10.95,'Pizza'),(10,'Pollosa',9.50,'Pizza'),(11,'Saumona',10.95,'Pizza'),(12,'Cola',2.95,'Boisson'),(13,'Orangeade',2.95,'Boisson'),(14,'ThÃ© GlacÃ©',2.95,'Boisson'),(15,'Eau ',1.50,'Boisson'),(16,'Limonade',2.95,'Boisson'),(17,'Binouze',5.95,'Boisson'),(18,'Mozza Sticks',3.95,'EntrÃ©e'),(19,'Burrata',3.95,'EntrÃ©e'),(20,'Salade',4.95,'EntrÃ©e'),(21,'Nuggets',3.95,'EntrÃ©e'),(22,'Glace',3.95,'Dessert'),(23,'Beignet',3.95,'Dessert'),(24,'Pancake',3.95,'Dessert'),(25,'Chti\'ramisu',2.95,'Dessert'),(26,'4 Fromages',9.50,'Pizza'),(27,'Margherita',8.50,'Pizza'),(28,'Reine',8.50,'Pizza'),(29,'Napolitaine',9.50,'Pizza'),(30,'Romaine',8.95,'Pizza'),(31,'Calzone',9.50,'Pizza'),(32,'HawaÃ¯enne',10.95,'Pizza'),(33,'Pepperoni',9.50,'Pizza'),(34,'Montagnarde',10.95,'Pizza'),(35,'Pollosa',9.50,'Pizza'),(36,'Saumona',10.95,'Pizza'),(37,'Cola',2.95,'Boisson'),(38,'Orangeade',2.95,'Boisson'),(39,'ThÃ© GlacÃ©',2.95,'Boisson'),(40,'Eau ',1.50,'Boisson'),(41,'Limonade',2.95,'Boisson'),(42,'Binouze',5.95,'Boisson'),(43,'Mozza Sticks',3.95,'EntrÃ©e'),(44,'Burrata',3.95,'EntrÃ©e'),(45,'Salade',4.95,'EntrÃ©e'),(46,'Nuggets',3.95,'EntrÃ©e'),(47,'Glace',3.95,'Dessert'),(48,'Beignet',3.95,'Dessert'),(49,'Pancake',3.95,'Dessert'),(50,'Chti\'ramisu',2.95,'Dessert');
+/*!40000 ALTER TABLE `article` ENABLE KEYS */;
 UNLOCK TABLES;
 --
 -- Table structure for table `commande`
@@ -48,7 +48,7 @@ CREATE TABLE `commande` (
   `DATE_CMD` date DEFAULT NULL,
   `HEURE` time DEFAULT NULL,
   `ID_CLIENT` int(11) DEFAULT NULL,
-  `VALIDATION (f=0, t=1)` tinyint(1) NOT NULL DEFAULT '0',
+  `VALIDATION` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID_COMMANDE`),
   KEY `commande_ibfk_1` (`ID_CLIENT`),
   CONSTRAINT `commande_ibfk_1` FOREIGN KEY (`ID_CLIENT`) REFERENCES `custommer` (`ID_CLIENT`)
@@ -77,7 +77,7 @@ CREATE TABLE `commande_article` (
   KEY `ID_COMMANDE` (`ID_COMMANDE`),
   KEY `ID_ARTICLE` (`ID_ARTICLE`),
   CONSTRAINT `commande_article_ibfk_1` FOREIGN KEY (`ID_COMMANDE`) REFERENCES `commande` (`ID_COMMANDE`),
-  CONSTRAINT `commande_article_ibfk_2` FOREIGN KEY (`ID_ARTICLE`) REFERENCES `articles` (`ID_ARTICLE`)
+  CONSTRAINT `commande_article_ibfk_2` FOREIGN KEY (`ID_ARTICLE`) REFERENCES `article` (`ID_ARTICLE`)
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 --
@@ -122,7 +122,7 @@ CREATE TABLE `livraison` (
   `HEURE_DEPART` time DEFAULT NULL,
   `HEURE_CLIENT` time DEFAULT NULL,
   `HEURE_RETOUR` time DEFAULT NULL,
-  `VALIDATION (f=0, t=1)` TINYINT(1) NULL,
+  `VALIDATION` TINYINT(1) NULL,
   `ID_COMMANDE` int(11) DEFAULT NULL,
   `ID_USER` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID_LIVRAISON`),
