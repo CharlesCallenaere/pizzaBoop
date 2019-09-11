@@ -20,33 +20,24 @@
 				<ul class="nav navbar-nav">
 					<li class="nav-item"><a class="nav-link">Accueil</a></li>
 					<li class="nav-item"><a class="nav-link">Commander</a></li>
+					<li class="nav-item"><a class="nav-link">Fabriquer</a></li>
+					<li class="nav-item"><a class="nav-link">Livraison</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="nav-item"><a class="nav-link" href="signUp">Sign Up</a></li>
 					<li class="nav-item"><a class="nav-link" href="login">Login</a></li>
+					<li class="nav-item">
+						<form th:action="@{/logout}" method="post">
+							<input type="submit" value="Sign Out" />
+						</form>
+					</li>
 				</ul>
+				
 			</div>
 		</nav>
 	</header>
-	<div class="container">
-        <div class="bg-warning" th:if="${param.error}">
-            Invalid username and password.
-        </div>
-        <div class="bg-info" th:if="${param.logout}">
-            You have been logged out.
-        </div>
-		<h1 class="p-3 mb-2">Se connecter</h1>
-        <form th:action="@{/login}" method="post">
-			<div class="form-group">
-				<label for="inputUser">Login</label> 
-				<input type="text" class="form-control" id="inputLogin" name="user" required>
-			</div>
-			<div class="form-group">
-				<label for="inputPassword">Mot de passe</label> 
-				<input type="password" class="form-control" id="inputPassword" name="mdp" required>
-			</div>
-			<button type="submit" class="btn btn-primary">Valider</button>
-		</form>
+	<div>
+		<h1 th:utext="${hello}"></h1>
 	</div>
 </body>
 </html>

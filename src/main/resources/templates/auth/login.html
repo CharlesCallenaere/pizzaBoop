@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr-FR" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Bienvenue</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<header th:insert="fragment/header.html :: header"> </header>
+	<div class="container">
+        <div class="bg-warning" th:if="${param.error}">
+            Invalid username and password.
+        </div>
+        <div class="bg-info" th:if="${param.logout}">
+            You have been logged out.
+        </div>
+		<h1 class="p-3 mb-2">Se connecter</h1>
+        <form th:action="@{/login}" method="post">
+			<div class="form-group">
+				<label for="inputUser">Login</label> 
+				<input type="text" class="form-control" id="inputLogin" name="user" required>
+			</div>
+			<div class="form-group">
+				<label for="inputPassword">Mot de passe</label> 
+				<input type="password" class="form-control" id="inputPassword" name="mdp" required>
+			</div>
+			<button type="submit" class="btn btn-primary">Valider</button>
+		</form>
+	</div>
+</body>
+</html>

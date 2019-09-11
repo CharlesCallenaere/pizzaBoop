@@ -30,7 +30,7 @@ public class HelloController {
 	public String viewForm(Model model) {
 		model.addAttribute("custommer", custommerService.getCustommer());
 		
-		return "livraison2";
+		return "interface/livraison2";
 		
 	}
 	@GetMapping(path={"/test"})
@@ -41,11 +41,11 @@ public class HelloController {
 	
 	@GetMapping(path={"/login"})
 	public String viewLogin(Model model) {
-		return "login";
+		return "auth/login";
 	}
 	@GetMapping(path={"/signUp"})
 	public String viewSignUp(Model model) {
-		return "signUp";
+		return "auth/signUp";
 	}
 	
 	

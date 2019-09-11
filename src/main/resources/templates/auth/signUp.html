@@ -11,23 +11,7 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<header>
-		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<a class="navbar-brand text-light">Projet Pizza</a>
-				</div>
-				<ul class="nav navbar-nav">
-					<li class="nav-item"><a class="nav-link">Accueil</a></li>
-					<li class="nav-item"><a class="nav-link">Commander</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li class="nav-item"><a class="nav-link" href="signUp">Sign Up</a></li>
-					<li class="nav-item"><a class="nav-link" href="login">Login</a></li>
-				</ul>
-			</div>
-		</nav>
-	</header>
+	<header th:insert="fragment/header.html :: header"> </header>
 	<div class="container">
 		<h1 class="p-3 mb-2">Rejoignez-nous !</h1>
 		<form class="form-signin" method="post" aria-describedby="help" action="signup">
@@ -39,6 +23,10 @@
 			<div class="form-group">
 				<label for="inputFirstName">Prénom</label> 
 				<input type="text" class="form-control" id="inputFirstName" name="firstName" required>
+			</div>
+			<div class="form-group">
+				<label for="inputTel">Téléphone</label> 
+				<input type="tel" class="form-control" id="inputTel" name="tel" required>
 			</div>
 			<div class="form-group">
 				<label for="inputEmail">Adresse email</label> 
