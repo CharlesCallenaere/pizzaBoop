@@ -30,7 +30,10 @@ public class Custommer implements java.io.Serializable {
 	public Custommer() {
 	}
 
-	public Custommer(String nom, String prenom, String adresse, String numTel, Set<Commande> commandes) {
+	public Custommer(Integer idClient, String nom, String prenom, String adresse, String numTel,
+			Set<Commande> commandes) {
+		super();
+		this.idClient = idClient;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.adresse = adresse;
@@ -94,5 +97,4 @@ public class Custommer implements java.io.Serializable {
 	public void setCommandes(Set<Commande> commandes) {
 		this.commandes = commandes;
 	}
-
 }
