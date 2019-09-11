@@ -122,13 +122,14 @@ CREATE TABLE `livraison` (
   `HEURE_DEPART` time DEFAULT NULL,
   `HEURE_CLIENT` time DEFAULT NULL,
   `HEURE_RETOUR` time DEFAULT NULL,
+  `VALIDATION (f=0, t=1)` TINYINT(1) NULL,
   `ID_COMMANDE` int(11) DEFAULT NULL,
-  `ID_LIVREUR` int(11) DEFAULT NULL,
+  `ID_USER` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID_LIVRAISON`),
   KEY `ID_COMMANDE` (`ID_COMMANDE`),
-  KEY `ID_LIVREUR` (`ID_LIVREUR`),
+  KEY `ID_USER` (`ID_USER`),
   CONSTRAINT `livraison_ibfk_1` FOREIGN KEY (`ID_COMMANDE`) REFERENCES `commande` (`ID_COMMANDE`),
-  CONSTRAINT `livraison_ibfk_2` FOREIGN KEY (`ID_LIVREUR`) REFERENCES `livreur` (`ID_LIVREUR`)
+  CONSTRAINT `livraison_ibfk_2` FOREIGN KEY (`ID_USER`) REFERENCES `users` (`ID_USER`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 --
@@ -139,25 +140,26 @@ LOCK TABLES `livraison` WRITE;
 /*!40000 ALTER TABLE `livraison` ENABLE KEYS */;
 UNLOCK TABLES;
 --
--- Table structure for table `livreur`
+-- Table structure for table `users`
 --
-DROP TABLE IF EXISTS `livreur`;
+DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `livreur` (
-  `ID_LIVREUR` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `users` (
+  `ID_USER` int(11) NOT NULL AUTO_INCREMENT,
   `NOM` varchar(30) DEFAULT NULL,
-  `MDP` varchar(10) DEFAULT NULL,
-  PRIMARY KEY (`ID_LIVREUR`)
+  `MDP` varchar(15) DEFAULT NULL,
+  `ROLE` VARCHAR(10) NOT NULL DEFAULT 'ROLE_USER',
+  PRIMARY KEY (`ID_USER`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 --
--- Dumping data for table `livreur`
+-- Dumping data for table `users`
 --
-LOCK TABLES `livreur` WRITE;
-/*!40000 ALTER TABLE `livreur` DISABLE KEYS */;
-INSERT INTO `livreur` VALUES (1,'Codeville','Codeville1'),(2,'Canard','Canard1'),(3,'Becoue','Becoue1'),(4,'Boudin','Boudin1'),(5,'Podevin','Podevin1'),(6,'Codeville','Codeville1'),(7,'Canard','Canard1'),(8,'Becoue','Becoue1'),(9,'Boudin','Boudin1'),(10,'Podevin','Podevin1');
-/*!40000 ALTER TABLE `livreur` ENABLE KEYS */;
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1, 'Bodin', 'motDePasseAdmin','ROLE_ADMIN'), (2,'Codeville','Codeville1','ROLE_LIVREUR'),(3,'Canard','Canard1','ROLE_FABRIC'),(4,'Becoue','Becoue1','ROLE_LIVREUR'),(5,'Boudin','Boudin1','ROLE_LIVREUR'),(6,'Podevin','Podevin1','ROLE_LIVREUR');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -168,4 +170,3 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 -- Dump completed on 2019-09-11 12:15:12
-Réduire
