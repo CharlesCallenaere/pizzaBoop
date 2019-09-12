@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.formation.inti.entities.Livraison;
+import fr.formation.inti.service.CustomerService;
 import fr.formation.inti.service.LivraisonService;
 
 
@@ -20,12 +21,16 @@ public class LivraisonController {
 
 	@Autowired
 	private LivraisonService livraisonService;
+	@Autowired
+	private CustomerService customerService;
 
-	@GetMapping("/list")
-	public String listLivraison(Model themodel) {
-		themodel.addAttribute("livraison", livraisonService.findAll());
-
-		return "list-livraison";
+	
+	@GetMapping(path = {"/"})
+	public String viewForm(Model model) {
+		model.addAttribute("custommer", customerService.findAll());
+		
+		return "interface/livraison2";
+		
 	}
 
 	@GetMapping("/addlivraison")
@@ -39,7 +44,7 @@ public class LivraisonController {
 	public String processForm(Model themodel, @ModelAttribute("livraison") Livraison livraison) {
 
 		// adding logic here
-		livraisonService.add(livraison);
+		livraisonService.save(livraison);
 
 		// display
 		themodel.addAttribute("livraison", livraisonService.findAll());
@@ -60,7 +65,7 @@ public class LivraisonController {
 	public String deleteLivraison(Model themodel, @RequestParam("idLivraison") Integer theId) {
 
 		// adding logic here
-		livraisonService.delete(theId);
+		livraisonService.deleteById(theId);
 
 		// display
 		themodel.addAttribute("livraison", livraisonService.findAll());

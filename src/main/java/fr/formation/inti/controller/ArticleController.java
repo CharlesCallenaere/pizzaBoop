@@ -22,51 +22,51 @@ public class ArticleController {
 	private ArticleService articleService;
 
 	@GetMapping("/list")
-	public String listArticle(Model themodel) {
-		themodel.addAttribute("article", articleService.findAll());
+	public String listArticle(Model model) {
+		model.addAttribute("article", articleService.findAll());
 
 		return "list-article";
 	}
 
-	@GetMapping("/addarticle")
-	public String addArticle(Model themodel) {
-		Article article = new Article();
-		themodel.addAttribute(article);
-		return "show-article-form";
-	}
-
-	@PostMapping("/processform")
-	public String processForm(Model themodel, @ModelAttribute("article") Article article) {
-
-		// adding logic here
-		articleService.add(article);
-
-		// display
-		themodel.addAttribute("article", articleService.findAll());
-
-		return "list-article";
-	}
-
-	@GetMapping("/update")
-	public String updateArticle(Model themodel, @RequestParam("idArticle") Integer theId) {
-
-		themodel.addAttribute("article", articleService.getById(theId));
-
-		return "show-article-form";
-
-	}
-
-	@GetMapping("/delete")
-	public String deleteArticle(Model themodel, @RequestParam("idLivraison") Integer theId) {
-
-		// adding logic here
-		articleService.delete(theId);
-
-		// display
-		themodel.addAttribute("article", articleService.findAll());
-
-		return "list-article";
-
-	}
+//	@GetMapping("/addarticle")
+//	public String addArticle(Model model) {
+//		Article article = new Article();
+//		model.addAttribute(article);
+//		return "show-article-form";
+//	}
+//
+//	@PostMapping("/processform")
+//	public String processForm(Model model, @ModelAttribute("article") Article article) {
+//
+//		// adding logic here
+//		articleService.save(article);
+//
+//		// display
+//		model.addAttribute("article", articleService.findAll());
+//
+//		return "list-article";
+//	}
+//
+//	@GetMapping("/update")
+//	public String updateArticle(Model model, @RequestParam("idArticle") Integer id) {
+//
+//		model.addAttribute("article", articleService.findById(id));
+//
+//		return "show-article-form";
+//
+//	}
+//
+//	@GetMapping("/delete")
+//	public String deleteArticle(Model model, @RequestParam("idLivraison") Integer id) {
+//
+//		// adding logic here
+//		articleService.deleteById(id);
+//
+//		// display
+//		model.addAttribute("article", articleService.findAll());
+//
+//		return "list-article";
+//
+//	}
 
 }

@@ -23,7 +23,7 @@ public class Livraison implements Serializable {
 
 	private Integer idLivraison;
 	private Commande commande;
-	private Users users;
+	private Users user;
 	private Date heureDepart;
 	private Date heureClient;
 	private Date heureRetour;
@@ -32,9 +32,9 @@ public class Livraison implements Serializable {
 	public Livraison() {
 	}
 
-	public Livraison(Commande commande, Users users, Date heureDepart, Date heureClient, Date heureRetour, Boolean validation) {
+	public Livraison(Commande commande, Users user, Date heureDepart, Date heureClient, Date heureRetour, Boolean validation) {
 		this.commande = commande;
-		this.users = users;
+		this.user = user;
 		this.heureDepart = heureDepart;
 		this.heureClient = heureClient;
 		this.heureRetour = heureRetour;
@@ -65,12 +65,12 @@ public class Livraison implements Serializable {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_USER")
-	public Users getUsers() {
-		return this.users;
+	public Users getUser() {
+		return this.user;
 	}
 
-	public void setUsers(Users users) {
-		this.users = users;
+	public void setUsers(Users user) {
+		this.user = user;
 	}
 
 	@Temporal(TemporalType.TIME)

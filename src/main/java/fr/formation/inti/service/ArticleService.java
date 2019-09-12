@@ -10,50 +10,30 @@ import org.springframework.stereotype.Service;
 import fr.formation.inti.dao.ArticleDao;
 import fr.formation.inti.entities.Article;
 
-
 @Service
 public class ArticleService {
 
-    @Autowired
-    private ArticleDao articleDao;
-    
-    
-    
-    
-    public void setArticleDao(ArticleDao articleDao) {
-		this.articleDao = articleDao;
+	@Autowired
+	private ArticleDao dao;
+
+	public void setArticleDao(ArticleDao dao) {
+		this.dao = dao;
 	}
 
+	public List<Article> findAll() {
+		return dao.findAll();
+	}
 
-    public List<Article> findAll() {
-        
-                // do some business processing here ...
-            //now call DAO layer
-        return articleDao.findAll();
+	public Article save(Article article) {
+		return dao.save(article);
+	}
 
-  }
-    
-    
-    public Article add(Article article) {
-        
-         // do some business processing  here ...
-            //now call DAO layer
-        return articleDao.save(article);
-        
-    }
-    
-    public Article getById(Integer theId) {
-        
-        // do some business processing here ... 
-            //now call DAO layer
-        return articleDao.findById(theId).get();
-    }
-    
-    
-    @Transactional
-    public void delete(Integer theId) {
-         // do some business processing here ...
-         //now call DAO layer
-    	articleDao.deleteById(theId);
-    }
+	public Article findById(Integer id) {
+		return dao.findById(id).get();
+	}
+
+	@Transactional
+	public void deleteById(Integer id) {
+		dao.deleteById(id);
+	}
 }

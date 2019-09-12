@@ -7,28 +7,28 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import fr.formation.inti.dao.CommandeDao;
-import fr.formation.inti.entities.Commande;
+import fr.formation.inti.dao.CustomerDao;
+import fr.formation.inti.entities.Customer;
 
 @Service
-public class CommandeService {
+public class CustomerService {
 
 	@Autowired
-	private CommandeDao dao;
+	private CustomerDao dao;
 
-	public void setArticleDao(CommandeDao dao) {
+	public void setArticleDao(CustomerDao dao) {
 		this.dao = dao;
 	}
 
-	public List<Commande> findAll() {
+	public List<Customer> findAll() {
 		return dao.findAll();
 	}
 
-	public Commande save(Commande commande) {
-		return dao.save(commande);
+	public Customer save(Customer custommer) {
+		return dao.save(custommer);
 	}
 
-	public Commande findById(Integer id) {
+	public Customer findById(Integer id) {
 		return dao.findById(id).get();
 	}
 

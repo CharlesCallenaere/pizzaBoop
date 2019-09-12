@@ -25,7 +25,7 @@ import javax.persistence.TemporalType;
 public class Commande implements Serializable {
 
 	private Integer idCommande;
-	private Custommer custommer;
+	private Customer custommer;
 	private Date dateCmd;
 	private Date heure;
 	private boolean validation;
@@ -35,7 +35,7 @@ public class Commande implements Serializable {
 	public Commande() {
 	}
 
-	public Commande(Custommer custommer, Date dateCmd, Date heure, boolean validation, Set<Livraison> livraisons, Set<CommandeArticle> commandeArticles) {
+	public Commande(Customer custommer, Date dateCmd, Date heure, boolean validation, Set<Livraison> livraisons, Set<CommandeArticle> commandeArticles) {
 		this.custommer = custommer;
 		this.dateCmd = dateCmd;
 		this.heure = heure;
@@ -58,11 +58,11 @@ public class Commande implements Serializable {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_CLIENT")
-	public Custommer getCustommer() {
+	public Customer getCustommer() {
 		return this.custommer;
 	}
 
-	public void setCustommer(Custommer custommer) {
+	public void setCustommer(Customer custommer) {
 		this.custommer = custommer;
 	}
 

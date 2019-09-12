@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "custommer", catalog = "pizza_db")
-public class Custommer implements Serializable {
+public class Customer implements Serializable {
 
 	private Integer idClient;
 	private String nom;
@@ -26,10 +26,10 @@ public class Custommer implements Serializable {
 	private String numTel;
 	private Set<Commande> commandes = new HashSet<>(0);
 
-	public Custommer() {
+	public Customer() {
 	}
 
-	public Custommer(String nom, String prenom, String adresse, String numTel, Set<Commande> commandes) {
+	public Customer(String nom, String prenom, String adresse, String numTel, Set<Commande> commandes) {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.adresse = adresse;

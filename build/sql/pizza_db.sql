@@ -51,7 +51,7 @@ CREATE TABLE `commande` (
   `VALIDATION` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID_COMMANDE`),
   KEY `commande_ibfk_1` (`ID_CLIENT`),
-  CONSTRAINT `commande_ibfk_1` FOREIGN KEY (`ID_CLIENT`) REFERENCES `custommer` (`ID_CLIENT`)
+  CONSTRAINT `commande_ibfk_1` FOREIGN KEY (`ID_CLIENT`) REFERENCES `customer` (`ID_CLIENT`)
 ) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 --
@@ -89,12 +89,12 @@ INSERT INTO `commande_article` VALUES (1,1,4,1),(2,1,5,1),(3,1,12,1),(4,1,13,1),
 /*!40000 ALTER TABLE `commande_article` ENABLE KEYS */;
 UNLOCK TABLES;
 --
--- Table structure for table `custommer`
+-- Table structure for table `customer`
 --
-DROP TABLE IF EXISTS `custommer`;
+DROP TABLE IF EXISTS `customer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `custommer` (
+CREATE TABLE `customer` (
   `ID_CLIENT` int(11) NOT NULL AUTO_INCREMENT,
   `NOM` varchar(30) DEFAULT NULL,
   `PRENOM` varchar(30) DEFAULT NULL,
@@ -104,12 +104,12 @@ CREATE TABLE `custommer` (
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 --
--- Dumping data for table `custommer`
+-- Dumping data for table `customer`
 --
-LOCK TABLES `custommer` WRITE;
-/*!40000 ALTER TABLE `custommer` DISABLE KEYS */;
-INSERT INTO `custommer` VALUES (3,'Bodin','Coline','29 Rue Bonte Pollet, 59000 Lille','0236152987'),(4,'Becuwe','ClÃ©ment','57 Rue Christophe Colomb, 59800 Lille','0642398521'),(5,'Callenaere','Charles','23 Rue Ferrer, 59155 Faches-Thumesnil','0198763249'),(6,'Machin','Bidule','2 Rue d\'IÃ©na, 59000 Lille','0695301945'),(7,'NoÃ«l','PÃ¨re','91 Rue MassÃ©na, 59800 Lille','3615'),(8,'Robert','Catherine','37 Rue Bonte Pollet, 59000 Lille','0320925755'),(9,'Bodin','Coline','29 Rue Bonte Pollet, 59000 Lille','0236152987'),(10,'Becuwe','ClÃ©ment','57 Rue Christophe Colomb, 59800 Lille','0642398521'),(11,'Callenaere','Charles','23 Rue Ferrer, 59155 Faches-Thumesnil','0198763249'),(12,'Machin','Bidule','2 Rue d\'IÃ©na, 59000 Lille','0695301945'),(13,'NoÃ«l','PÃ¨re','91 Rue MassÃ©na, 59800 Lille','3615'),(14,'Robert','Catherine','37 Rue Bonte Pollet, 59000 Lille','0320925755');
-/*!40000 ALTER TABLE `custommer` ENABLE KEYS */;
+LOCK TABLES `customer` WRITE;
+/*!40000 ALTER TABLE `customer` DISABLE KEYS */;
+INSERT INTO `customer` VALUES (3,'Bodin','Coline','29 Rue Bonte Pollet, 59000 Lille','0236152987'),(4,'Becuwe','ClÃ©ment','57 Rue Christophe Colomb, 59800 Lille','0642398521'),(5,'Callenaere','Charles','23 Rue Ferrer, 59155 Faches-Thumesnil','0198763249'),(6,'Machin','Bidule','2 Rue d\'IÃ©na, 59000 Lille','0695301945'),(7,'NoÃ«l','PÃ¨re','91 Rue MassÃ©na, 59800 Lille','3615'),(8,'Robert','Catherine','37 Rue Bonte Pollet, 59000 Lille','0320925755'),(9,'Bodin','Coline','29 Rue Bonte Pollet, 59000 Lille','0236152987'),(10,'Becuwe','ClÃ©ment','57 Rue Christophe Colomb, 59800 Lille','0642398521'),(11,'Callenaere','Charles','23 Rue Ferrer, 59155 Faches-Thumesnil','0198763249'),(12,'Machin','Bidule','2 Rue d\'IÃ©na, 59000 Lille','0695301945'),(13,'NoÃ«l','PÃ¨re','91 Rue MassÃ©na, 59800 Lille','3615'),(14,'Robert','Catherine','37 Rue Bonte Pollet, 59000 Lille','0320925755');
+/*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 --
 -- Table structure for table `livraison`
