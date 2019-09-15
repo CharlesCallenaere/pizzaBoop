@@ -12,6 +12,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -23,16 +25,17 @@ public class Article implements Serializable {
 	private Integer idArticle;
 	private String nom;
 	private BigDecimal prix;
-	private String category;
+	private CategoryArticle categoryArticle;
 	private Set<CommandeArticle> commandeArticles = new HashSet<>(0);
 
 	public Article() {
 	}
 
-	public Article(String nom, BigDecimal prix, String category, Set<CommandeArticle> commandeArticles) {
+	public Article(CategoryArticle categoryArticle, String nom, BigDecimal prix,
+			Set<CommandeArticle> commandeArticles) {
+		this.categoryArticle = categoryArticle;
 		this.nom = nom;
 		this.prix = prix;
-		this.category = category;
 		this.commandeArticles = commandeArticles;
 	}
 
@@ -46,6 +49,16 @@ public class Article implements Serializable {
 
 	public void setIdArticle(Integer idArticle) {
 		this.idArticle = idArticle;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "IDCATEGORY", nullable = false)
+	public CategoryArticle getCategoryArticle() {
+		return this.categoryArticle;
+	}
+
+	public void setCategoryArticle(CategoryArticle categoryArticle) {
+		this.categoryArticle = categoryArticle;
 	}
 
 	@Column(name = "NOM", length = 30)
@@ -64,15 +77,6 @@ public class Article implements Serializable {
 
 	public void setPrix(BigDecimal prix) {
 		this.prix = prix;
-	}
-
-	@Column(name = "CATEGORY", length = 20)
-	public String getCategory() {
-		return this.category;
-	}
-
-	public void setCategory(String category) {
-		this.category = category;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "article")

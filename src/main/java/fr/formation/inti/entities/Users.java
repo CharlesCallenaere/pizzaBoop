@@ -11,6 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -22,16 +24,16 @@ public class Users implements Serializable {
 	private Integer idUser;
 	private String nom;
 	private String mdp;
-	private String role;
+	private RoleUsers roleUsers;
 	private Set<Livraison> livraisons = new HashSet<>(0);
 
 	public Users() {
 	}
 
-	public Users(String nom, String mdp, String role, Set<Livraison> livraisons) {
+	public Users(RoleUsers roleUsers, String nom, String mdp, Set<Livraison> livraisons) {
+		this.roleUsers = roleUsers;
 		this.nom = nom;
 		this.mdp = mdp;
-		this.role = role;
 		this.livraisons = livraisons;
 	}
 
@@ -45,6 +47,16 @@ public class Users implements Serializable {
 
 	public void setIdUser(Integer idUser) {
 		this.idUser = idUser;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "ID_ROLE_USER", nullable = false)
+	public RoleUsers getRoleUsers() {
+		return this.roleUsers;
+	}
+
+	public void setRoleUsers(RoleUsers roleUsers) {
+		this.roleUsers = roleUsers;
 	}
 
 	@Column(name = "NOM", length = 30)
@@ -63,15 +75,6 @@ public class Users implements Serializable {
 
 	public void setMdp(String mdp) {
 		this.mdp = mdp;
-	}
-
-	@Column(name = "ROLE", nullable = false, length = 10)
-	public String getRole() {
-		return this.role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "users")

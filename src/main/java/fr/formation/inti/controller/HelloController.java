@@ -1,11 +1,8 @@
 package fr.formation.inti.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import fr.formation.inti.service.ArticleService;
 @Controller
 public class HelloController {
 
@@ -15,8 +12,6 @@ public class HelloController {
 	 * @param model
 	 * @return
 	 */
-	@Autowired
-	private ArticleService service;
 	
 	@GetMapping(path={"/"})
 	public String view(Model model) {

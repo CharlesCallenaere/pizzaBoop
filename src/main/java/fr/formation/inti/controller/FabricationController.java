@@ -11,25 +11,24 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.formation.inti.entities.Article;
 import fr.formation.inti.service.ArticleService;
-import fr.formation.inti.service.CategoryArticleService;
+import fr.formation.inti.service.CommandeService;
 
 
 
 @Controller
-@RequestMapping("/article")
-public class ArticleController {
+@RequestMapping("/fabrication")
+public class FabricationController {
 
+	//WIP a configurer
+	
 	@Autowired
-	private ArticleService articleService;
-	@Autowired
-	private CategoryArticleService categoryService;
+	private CommandeService service;
 
 	@GetMapping("/list")
 	public String list(Model model) {
-		model.addAttribute("article", articleService.findAll());
-		model.addAttribute("category", categoryService.findAll());
+		model.addAttribute("commande", service.findAll());
 
-		return "interface/list-article";
+		return "interface/interface-fabrication";
 	}
 
 //	@GetMapping("/addarticle")

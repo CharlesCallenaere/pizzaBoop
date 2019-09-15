@@ -25,9 +25,9 @@ public class LivraisonController {
 	private CustomerService customerService;
 
 	
-	@GetMapping(path = {"/"})
-	public String viewForm(Model model) {
-		model.addAttribute("custommer", customerService.findAll());
+	@GetMapping(path = {"/list"})
+	public String list(Model model) {
+		model.addAttribute("customer", customerService.findAll());
 		
 		return "interface/livraison2";
 		

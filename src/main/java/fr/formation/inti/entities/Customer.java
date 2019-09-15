@@ -11,15 +11,18 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name = "custommer", catalog = "pizza_db")
+@Table(name = "customer", catalog = "pizza_db")
 public class Customer implements Serializable {
 
 	private Integer idClient;
+	private RoleUsers roleUsers;
 	private String nom;
 	private String prenom;
 	private String adresse;
@@ -29,7 +32,9 @@ public class Customer implements Serializable {
 	public Customer() {
 	}
 
-	public Customer(String nom, String prenom, String adresse, String numTel, Set<Commande> commandes) {
+	public Customer(RoleUsers roleUsers, String nom, String prenom, String adresse, String numTel,
+			Set<Commande> commandes) {
+		this.roleUsers = roleUsers;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.adresse = adresse;
@@ -47,6 +52,16 @@ public class Customer implements Serializable {
 
 	public void setIdClient(Integer idClient) {
 		this.idClient = idClient;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "ID_ROLE_USER", nullable = false)
+	public RoleUsers getRoleUsers() {
+		return this.roleUsers;
+	}
+
+	public void setRoleUsers(RoleUsers roleUsers) {
+		this.roleUsers = roleUsers;
 	}
 
 	@Column(name = "NOM", length = 30)
@@ -85,7 +100,7 @@ public class Customer implements Serializable {
 		this.numTel = numTel;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "custommer")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
 	public Set<Commande> getCommandes() {
 		return this.commandes;
 	}

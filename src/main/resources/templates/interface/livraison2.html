@@ -16,7 +16,7 @@
 
 	<table class="tab">
 		<tbody>
-			<tr th:each="client : ${custommer}"  th:if="${client.commandes.isEmpty()==false}">
+			<tr th:each="client : ${customer}"  th:if="${client.commandes.isEmpty()==false}">
 				<td class="client">Données client :<br />
 					<ul >
 						<li th:text="${client.nom}"></li>
@@ -30,7 +30,7 @@
 						<li th:each="commande : ${client.commandes}">
 						<script>
 						
-						 document.write('${commande.idCommande}'');</script>
+						 document.write('${commande.idCommande}');</script>
 						 </li>
 					</ul>
 				</td>
