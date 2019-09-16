@@ -8,22 +8,28 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript" th:src="@{/js/commande.js}"></script>
 </head>
 
 <body>
 	<header th:insert="fragment/header.html :: header"> </header>
-	<h1>Interface de commande</h1>
-	<div>
-		<table class="table" th:each="ca: ${category}">
+	<h1>Mon panier</h1>
+	<div class="container">
+		<table id="panier" class="table" th:each="ca: ${category}">
 			<thead>
 				<th th:utext="${ca.nom}"></th>
 			</thead>
 			<tbody>
 				<table th:each="a: ${ca.articles}" class="table">
-						<tr>
-							<td th:utext="${a.nom}"></td>
-							<td th:utext="${a.prix}"></td>
-						</tr>
+					<tr>
+						<td><img th:src="${a.image}" alt="logo"/></td>
+						<td th:utext="${a.nom}"></td>
+						<td th:utext="${a.prix}"></td>
+						<td>&euro;</td>
+						<td><input type="button" onclick="incrementValue()" value="+" /></td>
+						<td><input type="number" id="articleQuantity" disabled></td>
+						<td><input type="button" onclick="decrementValue()" value="-" /></td>
+					</tr>
 				</table>
 			</tbody>
 		</table>

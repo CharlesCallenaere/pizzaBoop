@@ -23,6 +23,7 @@ import javax.persistence.Table;
 public class Article implements Serializable {
 
 	private Integer idArticle;
+	private String image;
 	private String nom;
 	private BigDecimal prix;
 	private CategoryArticle categoryArticle;
@@ -31,13 +32,15 @@ public class Article implements Serializable {
 	public Article() {
 	}
 
-	public Article(CategoryArticle categoryArticle, String nom, BigDecimal prix,
+	public Article(CategoryArticle categoryArticle, String image, String nom, BigDecimal prix,
 			Set<CommandeArticle> commandeArticles) {
 		this.categoryArticle = categoryArticle;
+		this.image = image;
 		this.nom = nom;
 		this.prix = prix;
 		this.commandeArticles = commandeArticles;
 	}
+
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
@@ -61,6 +64,15 @@ public class Article implements Serializable {
 		this.categoryArticle = categoryArticle;
 	}
 
+	@Column(name = "IMAGE", length = 100)
+	public String getImage() {
+		return image;
+	}
+	
+	public void setImage(String image) {
+		this.image = image;
+	}
+	
 	@Column(name = "NOM", length = 30)
 	public String getNom() {
 		return this.nom;

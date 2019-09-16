@@ -26,6 +26,7 @@ DROP TABLE IF EXISTS `article`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `article` (
   `ID_ARTICLE` int(11) NOT NULL AUTO_INCREMENT,
+  `IMAGE` varchar(100) DEFAULT NULL,
   `NOM` varchar(30) DEFAULT NULL,
   `PRIX` decimal(5,2) DEFAULT NULL,
   `IDCATEGORY` int(11) NOT NULL,
@@ -41,7 +42,7 @@ CREATE TABLE `article` (
 
 LOCK TABLES `article` WRITE;
 /*!40000 ALTER TABLE `article` DISABLE KEYS */;
-INSERT INTO `article` VALUES (1,'4 Fromages',9.50,2),(2,'Margherita',8.50,2),(3,'Reine',8.50,2),(4,'Napolitaine',9.50,2),(5,'Romaine',8.95,2),(6,'Calzone',9.50,2),(7,'Hawaïenne',10.95,2),(8,'Pepperoni',9.50,2),(9,'Montagnarde',10.95,2),(10,'Pollosa',9.50,2),(11,'Saumona',10.95,2),(12,'Cola',2.95,4),(13,'Orangeade',2.95,4),(14,'Thé Glacé',2.95,4),(15,'Eau ',1.50,4),(16,'Limonade',2.95,4),(17,'Binouze',5.95,4),(18,'Mozza Sticks',3.95,1),(19,'Burrata',3.95,1),(20,'Salade',4.95,1),(21,'Nuggets',3.95,1),(22,'Glace',3.95,3),(23,'Beignet',3.95,3),(24,'Pancake',3.95,3),(25,'Chti\'ramisu',2.95,3);
+INSERT INTO `article` VALUES (1,'/img/pizza.jpg','4 Fromages',9.50,2),(2,'/img/pizza.jpg','Margherita',8.50,2),(3,'/img/pizza.jpg','Reine',8.50,2),(4,'/img/pizza.jpg','Napolitaine',9.50,2),(5,'/img/pizza.jpg','Romaine',8.95,2),(6,'/img/pizza.jpg','Calzone',9.50,2),(7,'/img/pizza.jpg','Hawaïenne',10.95,2),(8,'/img/pizza.jpg','Pepperoni',9.50,2),(9,'/img/pizza.jpg','Montagnarde',10.95,2),(10,'/img/pizza.jpg','Pollosa',9.50,2),(11,'/img/pizza.jpg','Saumona',10.95,2),(12,'/img/aqua.jpg','Cola',2.95,4),(13,'/img/aqua.jpg','Orangeade',2.95,4),(14,'/img/aqua.jpg','Thé Glacé',2.95,4),(15,'/img/aqua.jpg','Eau ',1.50,4),(16,'/img/aqua.jpg','Limonade',2.95,4),(17,'/img/aqua.jpg','Binouze',5.95,4),(18,'/img/salade.jpg','Mozza Sticks',3.95,1),(19,'/img/salade.jpg','Burrata',3.95,1),(20,'/img/salade.jpg','Salade',4.95,1),(21,'/img/salade.jpg','Nuggets',3.95,1),(22,'/img/cake.jpg','Glace',3.95,3),(23,'/img/cake.jpg','Beignet',3.95,3),(24,'/img/cake.jpg','Pancake',3.95,3),(25,'/img/cake.jpg','Chti\'ramisu',2.95,3);
 /*!40000 ALTER TABLE `article` ENABLE KEYS */;
 UNLOCK TABLES;
 
